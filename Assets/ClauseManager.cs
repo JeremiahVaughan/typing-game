@@ -17,7 +17,6 @@ public class ClauseManager : MonoBehaviour {
         ClauseDisplay clauseDisplay = clauseSpawner.spawnClause();
 
         activeClause = new Clause(ClauseGenerator.getRandomClause(), clauseDisplay);
-        Debug.Log(activeClause.clause);
 
     }
 
