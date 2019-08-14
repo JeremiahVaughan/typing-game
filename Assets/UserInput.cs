@@ -11,6 +11,7 @@ public class UserInput : MonoBehaviour {
 		foreach (char letter in Input.inputString)
         {
             clauseManager.TypeLetter(letter);
+            Debug.Log(letter);
         }
 
 	}
