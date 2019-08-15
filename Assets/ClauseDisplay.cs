@@ -19,21 +19,14 @@ public class ClauseDisplay : MonoBehaviour {
 
     public void highlightLetter(int typeIndex)
     {
-        string startColorTag = "<#FF8000>";
-        string endColorTag = "</color>";
+        ;
+ 
         string text = this.textMeshPro.text;
 
-        //Debug.Log("going in: " + text);
+        text = removeAllTags(text);
+        text = applyAllTags(text, typeIndex);
 
-        text = removeColorTags(text, startColorTag, endColorTag);
-
-        //Debug.Log("comming out: " + text);
-
-        string highlightedText = startColorTag + text.Substring(0, typeIndex + 1) + endColorTag;
-        //Debug.Log("Highlighted Text: " + text.Substring(0, typeIndex + 1));
-        string regularText = text.Substring(typeIndex + 1, text.Length - (typeIndex + 1));
-        //Debug.Log("Regular Text: " + regularText);
-        this.textMeshPro.text = highlightedText + regularText;
+        this.textMeshPro.text = text;
         
 
     }
@@ -43,24 +36,39 @@ public class ClauseDisplay : MonoBehaviour {
         Destroy(gameObject);
     }
 
-    private string removeColorTags(string theString, string startTag, string endTag)
+    private string applyAllTags(string theString, int typeIndex)
     {
-        string escapedStartTag = Regex.Escape(startTag);
-        string escapedEndTag = Regex.Escape(endTag);
-        //Debug.Log("escaped tag: " + escapedEndTag);
-        
-        string startTagPattern = "[<][x]......[>]";
-        string endTagPattern = "[<][/].....[>]";
+        string startColorTag = "<#FF8000>";
+        string endColorTag = "</color>";
+        string startMarkTag = "<mark=#ffff00aa>";
+        string endMarkTag = "</mark>";
 
-        Match matchStart = Regex.Match(theString, startTagPattern);
-        Match matchEnd = Regex.Match(theString, endTagPattern);
-        Debug.Log("found tag: " + matchStart.Success.ToString());
-        if (matchStart.Success && matchEnd.Success)
+        string augmentedText = startMarkTag + startColorTag + 
+            theString.Substring(0, typeIndex + 1) + 
+            endColorTag + endMarkTag;
+        string regularText = theString.Substring(typeIndex + 1, theString.Length - (typeIndex + 1));
+
+        return augmentedText + regularText;
+    }
+
+
+    private string removeAllTags(string theString)
+    { 
+        theString = removeTag(theString, "[<][#]......[>]");
+        theString = removeTag(theString, "[<][/].....[>]");
+        theString = removeTag(theString, "[<]mark[=][#]........[>]");
+        theString = removeTag(theString, "[<][/]mark[>]");
+
+        return theString;
+    }
+
+    private string removeTag(string theString, string tagPattern)
+    {
+        Match match = Regex.Match(theString, tagPattern);
+
+        if (match.Success)
         {
-            theString.Remove(theString.IndexOf(escapedStartTag), startTag.Length);
-            theString.Remove(theString.IndexOf(escapedEndTag), endTag.Length);
-            //Debug.Log(theString.IndexOf(startTag));
-            //Debug.Log(theString.IndexOf(endTag));
+            theString = Regex.Replace(theString, tagPattern, "");
         }
         return theString;
     }
