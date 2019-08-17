@@ -26,10 +26,13 @@ public class Clause {
 
     public void typeLetter(char letter)
     {
-        if (typeIndex <= clause.Length && getNextLetter() == letter)
+        if (typeIndex < clause.Length && getNextLetter() == letter)
         {
-            clauseDisplay.highlightLetter(typeIndex);
+            clauseDisplay.highlightNextLetter();
             typeIndex++;
+        } else if (typeIndex < clause.Length && getNextLetter() != letter)
+        {
+            clauseDisplay.markCurrentCharRed();
         } else if (typeIndex >= clause.Length)
         {
             clauseDisplay.removeClause();

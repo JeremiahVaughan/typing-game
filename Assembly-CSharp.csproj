@@ -60,6 +60,8 @@
      <Compile Include="Assets\ClauseGenerator.cs" />
      <Compile Include="Assets\ClauseManager.cs" />
      <Compile Include="Assets\ClauseSpawner.cs" />
+     <Compile Include="Assets\TypedSubClause.cs" />
+     <Compile Include="Assets\UntypedSubClause.cs" />
      <Compile Include="Assets\UserInput.cs" />
      <None Include="Assets\ListOfWords.txt" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
