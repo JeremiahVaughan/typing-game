@@ -16,8 +16,13 @@ public class ClauseManager : MonoBehaviour {
     {
         ClauseDisplay clauseDisplay = clauseSpawner.spawnClause();
 
-        activeClause = new Clause(ClauseGenerator.getRandomClause(), clauseDisplay);
+        activeClause = new Clause(ClauseGenerator.getRandomClause(), clauseDisplay, this);
 
+    }
+
+    public void requestRespawn()
+    {
+        AddClause();
     }
 
     public void TypeLetter(char letter)

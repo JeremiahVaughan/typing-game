@@ -9,14 +9,17 @@ public class Clause {
     private int typeIndex;
 
     ClauseDisplay clauseDisplay;
+    ClauseManager owner;
 
-    public Clause(string clause, ClauseDisplay clauseDisplay)
+    public Clause(string clause, ClauseDisplay clauseDisplay, ClauseManager owner)
     {
         this.clause = clause;
         typeIndex = 0;
 
         this.clauseDisplay = clauseDisplay;
         clauseDisplay.setClause(clause);
+
+        this.owner = owner;
     }
 
     public char getNextLetter()
@@ -30,13 +33,33 @@ public class Clause {
         {
             clauseDisplay.highlightNextLetter();
             typeIndex++;
+
+            if (endOfClauseReached())
+            {
+                clauseDisplay.removeClause();
+                respawn();
+            }
+
         } else if (typeIndex < clause.Length && getNextLetter() != letter)
         {
             clauseDisplay.markCurrentCharRed();
-        } else if (typeIndex >= clause.Length)
-        {
-            clauseDisplay.removeClause();
         }
         
+    }
+
+    private void respawn()
+    {
+        owner.requestRespawn();
+    }
+
+    private bool endOfClauseReached()
+    {
+        if (clause.Length == typeIndex)
+        {
+            return true;
+        } else
+        {
+            return false;
+        }
     }
 }
