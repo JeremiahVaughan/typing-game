@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ClauseManager : MonoBehaviour {
 
+    public ResourceManager resourceManager;
     public ClauseSpawner clauseSpawner;
     private Clause activeClause;
 
@@ -20,8 +21,9 @@ public class ClauseManager : MonoBehaviour {
 
     }
 
-    public void requestRespawn()
+    public void requestRespawn(int clauseValue)
     {
+        resourceManager.requestResourcesBeAdded(clauseValue);
         AddClause();
     }
 

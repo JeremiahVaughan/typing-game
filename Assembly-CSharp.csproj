@@ -60,6 +60,7 @@
      <Compile Include="Assets\ClauseGenerator.cs" />
      <Compile Include="Assets\ClauseManager.cs" />
      <Compile Include="Assets\ClauseSpawner.cs" />
+     <Compile Include="Assets\ResourceManager.cs" />
      <Compile Include="Assets\TypedSubClause.cs" />
      <Compile Include="Assets\UntypedSubClause.cs" />
      <Compile Include="Assets\UserInput.cs" />

@@ -6,6 +6,9 @@ using UnityEngine;
 public class Clause {
 
     public string clause;
+    public int clauseValue = 100;
+    public int penalty = 5;
+
     private int typeIndex;
 
     ClauseDisplay clauseDisplay;
@@ -43,13 +46,14 @@ public class Clause {
         } else if (typeIndex < clause.Length && getNextLetter() != letter)
         {
             clauseDisplay.markCurrentCharRed();
+            applyPenalty();
         }
         
     }
 
     private void respawn()
     {
-        owner.requestRespawn();
+        owner.requestRespawn(clauseValue);
     }
 
     private bool endOfClauseReached()
@@ -60,6 +64,17 @@ public class Clause {
         } else
         {
             return false;
+        }
+    }
+
+    private void applyPenalty()
+    {
+        if (clauseValue - penalty > 0)
+        {
+            clauseValue = clauseValue - penalty;
+        } else
+        {
+            clauseValue = 0;
         }
     }
 }
