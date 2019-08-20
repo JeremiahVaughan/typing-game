@@ -20,14 +20,14 @@ public class TypedSubClause
 
     public string toStringWithTypedTextIndicators()
     {
-        string highlightColor = "#ffff00aa";
-        string textColor = "#FF8000";
+        string highlightColor = "#F6FA0F";
+        string textColor = "#000000";
 
         StringBuilder subClauseSnapShot = new StringBuilder("");
 
         subClauseSnapShot.Append("<mark=" + highlightColor + ">" + "<" + textColor + ">" +
             typedSubClause.ToString() +
-            "</color>" + "</mark>");
+            "</mark></color>");
 
         return subClauseSnapShot.ToString();
     }

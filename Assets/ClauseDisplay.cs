@@ -16,7 +16,7 @@ public class ClauseDisplay : MonoBehaviour {
 
     public void setClause(string clause)
     {
-        this.textMeshPro.text = clause;
+        this.textMeshPro.text = applyTextPolish(clause);
         untypedSubClause = new UntypedSubClause(clause);
         typedSubClause = new TypedSubClause("");
     }
@@ -25,14 +25,20 @@ public class ClauseDisplay : MonoBehaviour {
     {
         typedSubClause.push(untypedSubClause.pop());
         
-        this.textMeshPro.text = typedSubClause.toStringWithTypedTextIndicators() + 
-            untypedSubClause.ToString();  
+        this.textMeshPro.text = applyTextPolish(typedSubClause.toStringWithTypedTextIndicators() + 
+            untypedSubClause.ToString());  
     }
 
     public void markCurrentCharRed()
     {
-        this.textMeshPro.text = typedSubClause.toStringWithTypedTextIndicators() + 
-            untypedSubClause.toStringWithFirstCharRed();
+        this.textMeshPro.text = applyTextPolish(typedSubClause.toStringWithTypedTextIndicators() + 
+            untypedSubClause.toStringWithFirstCharRed());
+    }
+
+    private string applyTextPolish(string text) {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.Append("<b><font=\"LiberationSans SDF\">" + text + "</font><b>");
+        return stringBuilder.ToString();
     }
 
 

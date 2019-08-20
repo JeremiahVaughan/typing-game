@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using UnityEngine;
 
 [System.Serializable]
@@ -25,23 +27,24 @@ public class Clause {
         this.owner = owner;
     }
 
-    public char getNextLetter()
+    public string getNextLetter()
     {
-        return clause[typeIndex];
+        return clause[typeIndex].ToString();
     }
 
-    public void typeLetter(char letter)
+    public void typeLetter(string letter)
     {
+        Debug.Log("Enter key: " + Regex.Escape(letter));
+        if (endOfClauseReached() && (letter == " " || letter == "\r"))
+        {
+            clauseDisplay.removeClause();
+            respawn();
+        }
+
         if (typeIndex < clause.Length && getNextLetter() == letter)
         {
             clauseDisplay.highlightNextLetter();
             typeIndex++;
-
-            if (endOfClauseReached())
-            {
-                clauseDisplay.removeClause();
-                respawn();
-            }
 
         } else if (typeIndex < clause.Length && getNextLetter() != letter)
         {

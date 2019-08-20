@@ -27,11 +27,11 @@ public class UntypedSubClause
 
         if (currentCharacture == ' ')
         {
-            highlightColor = "#E10909";
+            highlightColor = "#F50F0F";
         }
         else
         {
-            highlightColor = "#EEBEBE";
+            highlightColor = "#000000";
         }
 
         string textColor = "#F50F0F";

@@ -27,7 +27,7 @@ public class ClauseManager : MonoBehaviour {
         AddClause();
     }
 
-    public void TypeLetter(char letter)
+    public void TypeLetter(string letter)
     {
         activeClause.typeLetter(letter);
     }

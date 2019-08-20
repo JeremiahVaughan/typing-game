@@ -6,7 +6,7 @@ using UnityEngine;
 public class ClauseGenerator : MonoBehaviour {
 
     private static string[] wordList = System.IO.File.ReadAllLines(@"Assets\ListOfWords.txt");
-    public static int desiredClauseLength = 45;
+    public static int desiredClauseLength = 35;
 
 	public static string getRandomClause()
     {

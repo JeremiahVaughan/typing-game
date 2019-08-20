@@ -10,8 +10,7 @@ public class UserInput : MonoBehaviour {
 	void Update () {
 		foreach (char letter in Input.inputString)
         {
-            clauseManager.TypeLetter(letter);
-            Debug.Log(letter);
+            clauseManager.TypeLetter(letter.ToString());
         }
 
 	}
