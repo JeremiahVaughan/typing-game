@@ -12,11 +12,9 @@ public class ClauseGenerator : MonoBehaviour {
     private string[] wordList;
     public int desiredClauseLength = 35;
     
-    //private static string[] wordList = getWords();
     void Awake()
     {
-        this.wordList = textAsset.text.Split(new[] { Environment.NewLine },
-            StringSplitOptions.None);
+        this.wordList = textAsset.text.Split(',');
     }
 
     public string getRandomClause()
@@ -30,21 +28,18 @@ public class ClauseGenerator : MonoBehaviour {
             randomClause.Append(delimiter);
             randomClause.Append(randomWord);
         }
-
-        return randomClause.ToString().Trim() ;
+        Debug.Log("Regular text sample: " + "bike test anchovies revolver highvault");
+        Debug.Log("Robust text sample: " + randomClause.ToString().Trim());
+        //String[] testStringArray = { "string1", "string2", "string3" };
+        return randomClause.ToString().Trim();
+        ////return this.wordList[0].ToString() + " " + wordList[1].ToString() + " " + wordList[2].ToString();
+        ////return "someword" + " " +  "anotherword" + " " + "moreword";
+        //randomClause.Clear();
+        //randomClause.Append(testStringArray[0]);
+        //randomClause.Append(" ");
+        //randomClause.Append(testStringArray[1]);
+        //randomClause.Append(" ");
+        //randomClause.Append(testStringArray[2]);
+        //return randomClause.ToString();
     }
-
-    //private static string[] getWords()
-    //{
-    //    string path = "Assets/ListOfWords.txt";
-
-    //    StreamReader reader = new StreamReader(path);
-    //    List<string> wordList = new List<string>();
-
-    //    while (!reader.EndOfStream)
-    //    {
-    //        wordList.Add(reader.ReadLine());
-    //    }
-    //    return wordList.ToArray() ;
-    //}
 }

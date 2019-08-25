@@ -25,8 +25,6 @@ public class Clause {
         clauseDisplay.setClause(clause);
 
         this.owner = owner;
-
-        Debug.Log("clause created");
     }
 
     public string getNextLetter()
@@ -36,7 +34,6 @@ public class Clause {
 
     public void typeLetter(string letter)
     {
-        Debug.Log("Enter key: " + Regex.Escape(letter));
         if (endOfClauseReached() && (letter == " " || letter == "\r"))
         {
             clauseDisplay.removeClause();
