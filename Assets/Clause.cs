@@ -25,6 +25,8 @@ public class Clause {
         clauseDisplay.setClause(clause);
 
         this.owner = owner;
+
+        Debug.Log("clause created");
     }
 
     public string getNextLetter()

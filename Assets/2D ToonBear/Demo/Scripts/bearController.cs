@@ -52,7 +52,6 @@ public class bearController : MonoBehaviour {
             anim.SetFloat("vSpeed", 0);
         }
 
-        Debug.Log("Transform is moving: " + transformIsMoving().ToString());
         
         
         if (aiPath.desiredVelocity.x >= 0.01f)

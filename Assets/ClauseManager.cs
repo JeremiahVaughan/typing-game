@@ -6,6 +6,7 @@ public class ClauseManager : MonoBehaviour {
 
     public ResourceManager resourceManager;
     public ClauseSpawner clauseSpawner;
+    public ClauseGenerator clauseGenerator;
     private Clause activeClause;
 
     private void Start()
@@ -17,7 +18,7 @@ public class ClauseManager : MonoBehaviour {
     {
         ClauseDisplay clauseDisplay = clauseSpawner.spawnClause();
 
-        activeClause = new Clause(ClauseGenerator.getRandomClause(), clauseDisplay, this);
+        activeClause = new Clause(clauseGenerator.getRandomClause(), clauseDisplay, this);
 
     }
 
