@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using UnityEngine;
 
-[System.Serializable]
-public class Clause {
+
+public class Clause : MonoBehaviour {
 
     public string clause;
     public int clauseValue = 100;
@@ -48,6 +48,7 @@ public class Clause {
         } else if (typeIndex < clause.Length && getNextLetter() != letter)
         {
             clauseDisplay.markCurrentCharRed();
+            owner.requestCameraShake();
             applyPenalty();
         }
         

@@ -56,11 +56,14 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\2D ToonBear\Demo\Scripts\bearController.cs" />
+     <Compile Include="Assets\CameraManager.cs" />
+     <Compile Include="Assets\CameraShake.cs" />
      <Compile Include="Assets\Clause.cs" />
      <Compile Include="Assets\ClauseDisplay.cs" />
      <Compile Include="Assets\ClauseGenerator.cs" />
      <Compile Include="Assets\ClauseManager.cs" />
      <Compile Include="Assets\ClauseSpawner.cs" />
+     <Compile Include="Assets\MainMenu.cs" />
      <Compile Include="Assets\PSD Logo Templates\Sample\IconPreview.cs" />
      <Compile Include="Assets\ResourceManager.cs" />
      <Compile Include="Assets\TypedSubClause.cs" />

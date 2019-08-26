@@ -5,6 +5,7 @@ using UnityEngine;
 public class ClauseManager : MonoBehaviour {
 
     public ResourceManager resourceManager;
+    public CameraManager cameraManager;
     public ClauseSpawner clauseSpawner;
     public ClauseGenerator clauseGenerator;
     private Clause activeClause;
@@ -31,6 +32,11 @@ public class ClauseManager : MonoBehaviour {
     public void TypeLetter(string letter)
     {
         activeClause.typeLetter(letter);
+    }
+
+    public void requestCameraShake()
+    {
+        cameraManager.requestCameraShake();
     }
     
 }
