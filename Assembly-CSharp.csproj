@@ -63,12 +63,15 @@
      <Compile Include="Assets\ClauseGenerator.cs" />
      <Compile Include="Assets\ClauseManager.cs" />
      <Compile Include="Assets\ClauseSpawner.cs" />
+     <Compile Include="Assets\closestEnemyTargetFinder.cs" />
+     <Compile Include="Assets\Director.cs" />
      <Compile Include="Assets\MainMenu.cs" />
      <Compile Include="Assets\PSD Logo Templates\Sample\IconPreview.cs" />
      <Compile Include="Assets\ResourceManager.cs" />
      <Compile Include="Assets\TypedSubClause.cs" />
      <Compile Include="Assets\UntypedSubClause.cs" />
      <Compile Include="Assets\UserInput.cs" />
+     <Compile Include="Assets\Vendor.cs" />
      <None Include="Assets\ListOfWords.txt" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />

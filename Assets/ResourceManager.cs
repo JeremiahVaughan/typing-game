@@ -24,4 +24,18 @@ public class ResourceManager : MonoBehaviour
         int resultingResources = startingResources + clauseValue;
         resourceDisplay.text = resultingResources.ToString();
     }
+
+    public bool checkForAvailableFunds(int cost)
+    {
+        if (Int32.Parse(resourceDisplay.text) - cost >= 0)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public void pullFunds(int charged)
+    {
+        resourceDisplay.text = (Int32.Parse(resourceDisplay.text) - charged).ToString();
+    }
 }
