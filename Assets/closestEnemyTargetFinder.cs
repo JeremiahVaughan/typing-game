@@ -33,7 +33,6 @@ public class closestEnemyTargetFinder : MonoBehaviour
         Transform bestTarget = null;
         float closestDistanceSqr = Mathf.Infinity;
         Vector3 currentPosition = transform.position;
-        Debug.Log("Number of enemies found: " + GameObject.FindGameObjectsWithTag("enemy").Length);
         foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("enemy")) {
             Vector3 directionToTarget = enemy.transform.position - currentPosition;
             float dSqrToTarget = directionToTarget.sqrMagnitude;
